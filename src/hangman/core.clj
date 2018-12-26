@@ -4,14 +4,20 @@
 (def total-lives 6)
 
 (defn lost [] 
-	(print "You died!"))
+  (print "You died!"))
 
-(defn play [lives]
-	(if (= lives 0)
-		(lost)
-		(do
-			(print lives " ")
-			(play (dec lives)))))
+(defn remove-matches [word choices]
+  (remove (fn [lett] (contains? choices (str lett) )) word))
+
+(defn hit-whole-word? [word choices]
+  (empty? (remove-matches word choices)))
+
+(defn play [lives word choices]
+  (if (= lives 0)
+    (lost)
+    (if (hit-whole-word? word choices)
+      (print "You win!")
+      (print "Choose a let: "))))
 
 (defn fib[x]
     (if (= x 0) 0 
