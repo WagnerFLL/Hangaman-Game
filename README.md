@@ -1,7 +1,5 @@
 # hangman
 
-FIXME: explanation
-
     $ java -jar hangman-0.1.0-standalone.jar []
 
 ## License
