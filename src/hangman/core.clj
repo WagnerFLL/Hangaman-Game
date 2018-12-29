@@ -2,6 +2,7 @@
   (:gen-class))
 
 (def total-lives 6)
+(def secret-word "ALEMANHA")
 
 (defn lost [] 
   (print "You died!"))
@@ -54,13 +55,8 @@
     (inc y)
     (recur (dec x) (+ y x))))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+(defn -main [& args]
+  (play total-lives secret-word #{}))
 
 (defn no-interval [x]
-  (filter 
-    (fn [e] 
-      (or (< e 2) (> e 4))) 
-    x))
+  (filter (fn [e] (or (< e 2) (> e 4))) x))
